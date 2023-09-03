@@ -1,0 +1,60 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class guessgame {
+    int input;
+
+    int comp;
+    int guess = 0;
+
+    public  void Setguess(int guess){
+        this.guess =  guess;
+    }
+    public  int setguess() {
+        return guess ;
+    }
+    public guessgame(){
+        Random tv = new Random();
+        comp = tv.nextInt(100);
+    }
+    public void userinput() {
+        System.out.println("ENter ur Number");
+        Scanner sc = new Scanner(System.in);
+        input = sc.nextInt();
+    }
+    boolean check(){
+        guess++;
+        if( input == comp) {
+            System.out.println("rigt" + true);
+            return true;
+        }
+        else if( input > comp){
+            System.out.println("too high ");
+            return false;
+        }
+        else if (input< comp){
+            System.out.println("to low");
+            return false;
+        }
+
+
+        else {
+            System.out.println("wrong input");
+            return false;
+        }
+
+    }}
+
+public class game{
+    public static void main(String[] args) {
+        System.out.println("Guess the number");
+
+        boolean a = false;
+        while(!a){
+            guessgame g = new guessgame();
+            g.userinput();
+            a =   g.check();
+        }
+
+
+    }}
